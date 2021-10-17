@@ -10,13 +10,15 @@ HEADERS += \
     BACKEND/algorithms/linearpfalgorithm.h \
     BACKEND/algorithms/pfalgorithm.h \
     BACKEND/cell.h \
-    BACKEND/field.h
+    BACKEND/field.h \
+    fieldmodel.h
 
 SOURCES += \
         BACKEND/algorithms/linearpfalgorithm.cpp \
         BACKEND/algorithms/pfalgorithm.cpp \
         BACKEND/cell.cpp \
         BACKEND/field.cpp \
+        fieldmodel.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
