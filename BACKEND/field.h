@@ -12,6 +12,7 @@ public:
     Field(size_t width, size_t height);
     size_t width() { return mWidth; };
     size_t height() { return mHeight; };
+    size_t size() { return mWidth * mHeight; };
     Cell& at(size_t idx);
     Cell& at(size_t y, size_t x);
 
