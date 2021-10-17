@@ -16,5 +16,5 @@ void LinearPFAlgorithm::step() {
 bool LinearPFAlgorithm::isDone()
 {
     auto curCell = field.at(curI, curJ);
-    return (&curCell == &Cell::NULL_CELL) || (curCell.state == Cell::TARGET);
+    return (&curCell == &NULL_CELL) || (curCell.state == Cell::TARGET);
 }

@@ -14,8 +14,8 @@ public:
 
     State state;
     Cell(State state = EMPTY);
-
-    static Cell NULL_CELL;
 };
+
+static Cell NULL_CELL {};
 
 #endif // CELL_H

@@ -10,8 +10,8 @@ public:
     Field& field;
 
     PFAlgorithm(Field& field);
-    virtual void step();
-    virtual bool isDone();
+    virtual void step() = 0;
+    virtual bool isDone() = 0;
 };
 
 #endif // PFALGORITHM_H

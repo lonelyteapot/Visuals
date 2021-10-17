@@ -11,7 +11,7 @@ Cell &Field::at(size_t idx)
 {
     if (idx < 0 || idx >= size()) {
         // Out of field bounds
-        return Cell::NULL_CELL;
+        return NULL_CELL;
     }
     return mCells[idx];
 }
