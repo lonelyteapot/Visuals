@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    Field field {12, 8};
+    Field field {24, 16};
     field.at(4, 4).state = Cell::TARGET;
     FieldModel fieldModel {field};
 
