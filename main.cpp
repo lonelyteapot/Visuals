@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     Field field {24, 16};
-    field.at(4, 4).state = Cell::TARGET;
+    field.randomize();
     FieldModel fieldModel {field};
 
     QQmlApplicationEngine engine;

@@ -14,6 +14,7 @@ Window {
         model: _fieldModel
         rowSpacing: 1
         columnSpacing: 1
+        interactive: false
 
         delegate: Rectangle {
             implicitWidth: 24

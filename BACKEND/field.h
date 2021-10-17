@@ -15,6 +15,7 @@ public:
     size_t size() { return mWidth * mHeight; };
     Cell& at(size_t idx);
     Cell& at(size_t y, size_t x);
+    void randomize();
 
 private:
     size_t mWidth, mHeight;

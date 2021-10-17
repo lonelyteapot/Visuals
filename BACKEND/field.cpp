@@ -1,5 +1,7 @@
 #include "field.h"
 
+#include <stdlib.h>
+
 Field::Field(size_t width, size_t height)
     : mWidth(width),
       mHeight(height),
@@ -19,4 +21,14 @@ Cell &Field::at(size_t idx)
 Cell &Field::at(size_t y, size_t x)
 {
     return at(y * mWidth + x);
+}
+
+void Field::randomize()
+{
+    if (size() == 0)
+        return;
+    for (size_t idx=0; idx < size(); ++idx) {
+        at(idx).state = (std::rand() % 10 < 7 ? Cell::EMPTY : Cell::WALL);
+    }
+    at(std::rand() % size()).state = Cell::TARGET;
 }
