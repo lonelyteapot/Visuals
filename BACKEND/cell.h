@@ -12,8 +12,10 @@ public:
         VISITED,
     };
 
-    State state = EMPTY;
-    Cell();
+    State state;
+    Cell(State state = EMPTY);
+
+    static Cell NULL_CELL;
 };
 
 #endif // CELL_H
