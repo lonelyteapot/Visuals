@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>Sidebar.qml</file>
         <file>Field.qml</file>
+        <file>Cell.qml</file>
     </qresource>
 </RCC>
