@@ -6,8 +6,20 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+HEADERS += \
+    BACKEND/algorithms/linearpfalgorithm.h \
+    BACKEND/algorithms/pfalgorithm.h \
+    BACKEND/cell.h \
+    BACKEND/field.h \
+    models/fieldmodel.h
+
 SOURCES += \
-        main.cpp
+        BACKEND/algorithms/linearpfalgorithm.cpp \
+        BACKEND/algorithms/pfalgorithm.cpp \
+        BACKEND/cell.cpp \
+        BACKEND/field.cpp \
+        main.cpp \
+        models/fieldmodel.cpp
 
 RESOURCES += qml.qrc
 

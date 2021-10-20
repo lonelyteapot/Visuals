@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>components/Sidebar.qml</file>
+        <file>components/Field.qml</file>
+        <file>components/Cell.qml</file>
     </qresource>
 </RCC>
