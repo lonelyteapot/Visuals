@@ -14,6 +14,7 @@ Rectangle {
             Layout.preferredHeight: 40
             text: "Clear field"
             font.pixelSize: 18
+            onClicked: _fieldModel.clearField()
         }
 
         Button {

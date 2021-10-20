@@ -22,6 +22,9 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role);
     QHash<int, QByteArray> roleNames() const;
 
+public slots:
+    void clearField();
+
 private:
     Field& field;
 };

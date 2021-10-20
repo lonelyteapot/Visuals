@@ -50,3 +50,13 @@ QHash<int, QByteArray> FieldModel::roleNames() const
     roles[StateRole] = "state";
     return roles;
 }
+
+void FieldModel::clearField()
+{
+    field.clear();
+    emit dataChanged(
+                index(0, 0),
+                index(field.height()-1, field.width()-1),
+                {StateRole}
+                );
+}

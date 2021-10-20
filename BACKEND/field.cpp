@@ -1,6 +1,7 @@
 #include "field.h"
 
-#include <stdlib.h>
+#include <cstdlib>
+#include <ctime>
 
 Field::Field(size_t width, size_t height)
     : mWidth(width),
@@ -21,6 +22,13 @@ Cell &Field::at(size_t idx)
 Cell &Field::at(size_t y, size_t x)
 {
     return at(y * mWidth + x);
+}
+
+void Field::clear()
+{
+    for (size_t idx=0; idx < size(); ++idx) {
+        at(idx).state = Cell::EMPTY;
+    }
 }
 
 void Field::randomize()
