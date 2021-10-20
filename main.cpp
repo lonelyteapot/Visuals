@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     std::srand(std::time(NULL));
 
-    Field field {24, 16};
+    Field field {16, 24};
     field.randomize();
     FieldModel fieldModel {field};
 

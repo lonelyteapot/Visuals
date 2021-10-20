@@ -4,10 +4,10 @@
 #include <ctime>
 #include <iostream>
 
-Field::Field(size_t width, size_t height)
-    : mWidth(width),
-      mHeight(height),
-      mCells(width * height)
+Field::Field(size_t nrows, size_t ncols)
+    : mRows(nrows),
+      mCols(ncols),
+      mCells(ncols * nrows)
 {
 }
 
@@ -22,7 +22,7 @@ Cell &Field::at(size_t idx)
 
 Cell &Field::at(size_t y, size_t x)
 {
-    return at(y * mWidth + x);
+    return at(y * mCols + x);
 }
 
 void Field::clear()
@@ -44,25 +44,25 @@ void Field::randomize()
 
 void Field::resize(size_t rows, size_t cols)
 {
-    if (cols < mWidth) {
+    if (cols < mCols) {
         size_t newIdx = 0;
-        for (size_t i=0; i < mHeight; ++i) {
+        for (size_t i=0; i < mRows; ++i) {
             for (size_t j=0; j < cols; ++j) {
-                mCells[newIdx++] = mCells[i*mWidth + j];
+                mCells[newIdx++] = mCells[i*mCols + j];
             }
         }
     }
     mCells.resize(rows * cols);
-    if (cols > mWidth) {
+    if (cols > mCols) {
         for (size_t i=rows; i-- > 0; ) {
-            for (size_t j=mWidth; j < cols; ++j) {
+            for (size_t j=mCols; j < cols; ++j) {
                 mCells[i*cols + j] = Cell();
             }
-            for (size_t j=mWidth; j-- > 0; ) {
-                mCells[i*cols + j] = mCells[i*mWidth + j];
+            for (size_t j=mCols; j-- > 0; ) {
+                mCells[i*cols + j] = mCells[i*mCols + j];
             }
         }
     }
-    mHeight = rows;
-    mWidth = cols;
+    mRows = rows;
+    mCols = cols;
 }

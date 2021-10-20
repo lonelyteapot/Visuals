@@ -10,14 +10,14 @@ int FieldModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return field.height();
+    return field.nrows();
 }
 
 int FieldModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return field.width();
+    return field.ncols();
 }
 
 QVariant FieldModel::data(const QModelIndex &index, int role) const
@@ -75,7 +75,7 @@ void FieldModel::clearField()
     field.clear();
     emit dataChanged(
                 index(0, 0),
-                index(field.height()-1, field.width()-1),
+                index(field.nrows()-1, field.ncols()-1),
                 {StateRole}
                 );
 }
@@ -85,7 +85,7 @@ void FieldModel::randomizeField()
     field.randomize();
     emit dataChanged(
                 index(0, 0),
-                index(field.height()-1, field.width()-1),
+                index(field.nrows()-1, field.ncols()-1),
                 {StateRole}
                 );
 }
