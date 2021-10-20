@@ -4,7 +4,12 @@ import QtQuick.Layouts 1.0
 Rectangle {
     color: "#FFF8EB"
 
+    property bool drawingEnabled: false
+    // TODO State enum
+    property int drawingResult: 0
+
     TableView {
+        id: table
         anchors.centerIn: parent
         implicitWidth:  25 * columns - 1
         implicitHeight: 25 * rows - 1

@@ -12,19 +12,40 @@ Rectangle {
         Button {
             Layout.fillWidth: true
             Layout.preferredHeight: 40
-            text: "Randomize field"
+            text: "Clear field"
             font.pixelSize: 18
         }
 
         Button {
             Layout.fillWidth: true
             Layout.preferredHeight: 40
-            text: "Visit random cell"
+            text: "Randomize field"
             font.pixelSize: 18
         }
 
         Item {
             Layout.fillHeight: true
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 40
+            color: field.drawingEnabled ? field.drawingResult ? "#2800FF00" : "#28FF0000" : "#28000000"
+            radius: 5
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.verticalCenter
+                text: "Left click - draw walls"
+                font.bold: field.drawingEnabled && field.drawingResult
+            }
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.verticalCenter
+                text: "Right click - erase walls"
+                font.bold: field.drawingEnabled && !field.drawingResult
+            }
         }
     }
 }

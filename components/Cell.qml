@@ -12,4 +12,22 @@ Rectangle {
         font.pixelSize: 14
         visible: false
     }
+
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onEntered: model.state = field.drawingResult
+        hoverEnabled: field.drawingEnabled
+        onPressed: (mouseEvent) => {
+            if (field.drawingEnabled) {
+                field.drawingEnabled = false;
+            } else {
+                // Hovering on other cells doen't work if the event is accepted
+                mouseEvent.accepted = false;
+                field.drawingResult = mouseEvent.button === Qt.LeftButton;
+                field.drawingEnabled = true;
+                onEntered();
+            }
+        }
+    }
 }

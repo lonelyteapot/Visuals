@@ -1,5 +1,8 @@
 #include "fieldmodel.h"
 
+#include <iostream>
+
+
 FieldModel::FieldModel(Field& field)
     : field(field)
 {
@@ -25,6 +28,20 @@ QVariant FieldModel::data(const QModelIndex &index, int role) const
         return field.at(index.row(), index.column()).state;
     }
     return QVariant();
+}
+
+bool FieldModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (role == StateRole) {
+        auto newState = value.value<Cell::State>();
+        auto& oldState = field.at(index.row(), index.column()).state;
+        if (newState == oldState)
+            return false;
+        oldState = newState;
+        emit dataChanged(index, index, {role});
+        return true;
+    }
+    return false;
 }
 
 QHash<int, QByteArray> FieldModel::roleNames() const
