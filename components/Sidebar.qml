@@ -15,6 +15,10 @@ Rectangle {
             text: "Clear field"
             font.pixelSize: 18
             onReleased: _fieldModel.clearField()
+            background: Rectangle {
+                color: colors.field_bg
+                radius: 5
+            }
         }
 
         Button {
@@ -22,7 +26,12 @@ Rectangle {
             Layout.preferredHeight: 40
             text: "Randomize field"
             font.pixelSize: 18
+            palette.button: "green"
             onReleased: _fieldModel.randomizeField()
+            background: Rectangle {
+                color: colors.field_bg
+                radius: 5
+            }
         }
 
         Item {
@@ -32,8 +41,14 @@ Rectangle {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 40
-            color: field.drawingEnabled ? field.drawingResult ? "#2800FF00" : "#28FF0000" : "#28000000"
+            color: colors.field_bg
             radius: 5
+
+            Rectangle {
+                anchors.fill: parent
+                opacity: 0.25
+                color: field.drawingEnabled ? field.drawingResult ? "green" : "red" : "transparent"
+            }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter

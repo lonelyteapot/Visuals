@@ -3,8 +3,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QQuickWindow>
-#include <QSGRendererInterface>
 
 
 int main(int argc, char *argv[])
