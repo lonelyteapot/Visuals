@@ -1,4 +1,4 @@
-#include "fieldmodel.h"
+#include "models/fieldmodel.h"
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>

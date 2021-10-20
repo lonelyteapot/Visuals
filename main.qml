@@ -15,6 +15,7 @@ Window {
         spacing: 0
 
         Sidebar {
+            id: sidebar
             Layout.preferredWidth: Math.round(root.width * 0.25)
             Layout.minimumWidth: 128
             Layout.maximumWidth: 320
@@ -22,6 +23,7 @@ Window {
         }
 
         Field {
+            id: field
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
