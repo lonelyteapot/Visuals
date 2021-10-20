@@ -1,7 +1,5 @@
 #include "fieldmodel.h"
 
-#include <iostream>
-
 
 FieldModel::FieldModel(Field& field)
     : field(field)
@@ -54,6 +52,16 @@ QHash<int, QByteArray> FieldModel::roleNames() const
 void FieldModel::clearField()
 {
     field.clear();
+    emit dataChanged(
+                index(0, 0),
+                index(field.height()-1, field.width()-1),
+                {StateRole}
+                );
+}
+
+void FieldModel::randomizeField()
+{
+    field.randomize();
     emit dataChanged(
                 index(0, 0),
                 index(field.height()-1, field.width()-1),

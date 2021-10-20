@@ -24,6 +24,7 @@ public:
 
 public slots:
     void clearField();
+    void randomizeField();
 
 private:
     Field& field;

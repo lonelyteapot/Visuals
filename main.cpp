@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    std::srand(std::time(NULL));
+
     Field field {24, 16};
     field.randomize();
     FieldModel fieldModel {field};

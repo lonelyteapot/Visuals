@@ -14,7 +14,7 @@ Rectangle {
             Layout.preferredHeight: 40
             text: "Clear field"
             font.pixelSize: 18
-            onClicked: _fieldModel.clearField()
+            onReleased: _fieldModel.clearField()
         }
 
         Button {
@@ -22,6 +22,7 @@ Rectangle {
             Layout.preferredHeight: 40
             text: "Randomize field"
             font.pixelSize: 18
+            onReleased: _fieldModel.randomizeField()
         }
 
         Item {
