@@ -17,6 +17,7 @@ public:
     Cell& at(size_t y, size_t x);
     void clear();
     void randomize();
+    void resize(size_t rows, size_t cols);
 
 private:
     size_t mWidth, mHeight;

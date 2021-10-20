@@ -21,6 +21,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     bool setData(const QModelIndex &index, const QVariant &value, int role);
     QHash<int, QByteArray> roleNames() const;
+    Q_INVOKABLE void resize(int rows, int cols);
 
 public slots:
     void clearField();
