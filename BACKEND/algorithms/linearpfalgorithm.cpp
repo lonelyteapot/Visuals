@@ -7,7 +7,7 @@ LinearPFAlgorithm::LinearPFAlgorithm(Field& field)
 
 void LinearPFAlgorithm::step() {
     field.at(curI, curJ).state = Cell::VISITED;
-    if (++curJ >= field.width()) {
+    if (++curJ >= field.ncols()) {
         curI += 1;
         curJ = 0;
     }

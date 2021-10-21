@@ -3,8 +3,12 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     radius: 2
-    // EMPTY, WALL, TARGET, VISITED
-    color: ["#6A6B83", "#533747", "#D33F49", "green"][model.state]
+    color: [
+        colors.cell_empty,
+        colors.cell_wall,
+        colors.cell_target,
+        colors.cell_visited
+    ][model.state]
 
     Text {
         anchors.centerIn: parent

@@ -10,12 +10,11 @@ int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-
     QGuiApplication app(argc, argv);
 
     std::srand(std::time(NULL));
 
-    Field field {24, 16};
+    Field field {16, 24};
     field.randomize();
     FieldModel fieldModel {field};
 
