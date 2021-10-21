@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 
 Rectangle {
-    color: "#FFECCC"
+    color: colors.sidebar_bg
 
     ColumnLayout {
         anchors.fill: parent

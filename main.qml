@@ -10,6 +10,16 @@ Window {
     visible: true
     title: qsTr("Visuals")
 
+    Item {
+        id: colors
+        readonly property color sidebar_bg: "#FFECCC"
+        readonly property color field_bg: "#FFF8EB"
+        readonly property color cell_empty: "#6A6B83"
+        readonly property color cell_wall: "#533747"
+        readonly property color cell_target: "#D33F49"
+        readonly property color cell_visited: "green"
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: 0

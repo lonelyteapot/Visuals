@@ -2,8 +2,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 2
 
 Rectangle {
-//    color: "#FFF8EB"
-    color: "#533747"
+    color: colors.cell_wall
     onWidthChanged: resizeToFit()
     onHeightChanged: resizeToFit()
     clip: true
@@ -32,7 +31,7 @@ Rectangle {
             anchors.fill: parent
             anchors.margins: -1
             radius: 2
-            color: "#FFF8EB"
+            color: colors.field_bg
         }
     }
 
