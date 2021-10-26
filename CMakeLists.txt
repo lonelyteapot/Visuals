@@ -14,14 +14,13 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 COMPONENTS Quick REQUIRED)
 
 set(PROJECT_SOURCES
-    BACKEND/algorithms/linearpfalgorithm.cpp
-    BACKEND/algorithms/pfalgorithm.cpp
-    BACKEND/cell.cpp
-    BACKEND/field.cpp
-    models/fieldmodel.cpp
-    main.cpp
-    main.cpp
-    qml.qrc
+    src/main.cpp
+    src/algorithms/linearpfalgorithm.cpp
+    src/algorithms/pfalgorithm.cpp
+    src/objects/cell.cpp
+    src/objects/field.cpp
+    src/models/fieldmodel.cpp
+    qml/qml.qrc
 )
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

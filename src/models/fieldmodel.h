@@ -3,7 +3,7 @@
 
 #include <QAbstractTableModel>
 
-#include "BACKEND/field.h"
+#include "src/objects/field.h"
 
 class FieldModel : public QAbstractTableModel
 {
