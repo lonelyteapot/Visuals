@@ -27,6 +27,7 @@ jobs:
         uses: jurplel/install-qt-action@v2
         with:
           version: 6.2.0
+          modules: qtshadertools
 
       - name: Verify qmake (host)
         run: qmake --version
