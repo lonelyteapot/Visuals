@@ -70,6 +70,11 @@ void FieldModel::resize(int rows, int cols)
     else if (cols < oldCols) endRemoveColumns();
 }
 
+void FieldModel::setStateAt(int row, int col, Cell::State state)
+{
+    setData(index(row, col), state, Roles::StateRole);
+}
+
 void FieldModel::clearField()
 {
     field.clear();
