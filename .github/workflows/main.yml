@@ -36,7 +36,7 @@ jobs:
           git clone https://code.qt.io/qt/qt5.git --branch 6.2.0
           cd qt5
           ./init-repository --module-subset=qtbase,qtshadertools,qtdeclarative
-          ./configure -xplatform wasm-emscripten -prefix $PWD/qtbase
+          ./configure -xplatform wasm-emscripten -qt-host-path $Qt6_DIR -prefix $PWD/qtbase
           cmake --build . -t qtbase -t qtdeclarative
           cd ..
 
