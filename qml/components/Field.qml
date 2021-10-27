@@ -6,7 +6,7 @@ Rectangle {
     clip: true
 
     property bool drawingEnabled: field_mouse_area.containsPress
-    property int drawingResult: (field_mouse_area.pressedButtons & Qt.LeftButton) ? 1 : 0
+    default property int drawingResult
     // TODO State enum
 
     readonly property int cellSize: 24
@@ -52,10 +52,14 @@ Rectangle {
                 (mouse) => {
                     last_row = Math.floor(mouse.y / fullCellSize)
                     last_col = Math.floor(mouse.x / fullCellSize)
+                    positionChanged(mouse)
                 }
 
             onPositionChanged:
                 (mouse) => {
+                    drawingResult = (mouse.buttons & Qt.LeftButton) ? 1 : 0
+                    // TODO State enum
+
                     let row = Math.floor(mouse.y / fullCellSize)
                     let col = Math.floor(mouse.x / fullCellSize)
 
