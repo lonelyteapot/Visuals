@@ -3,15 +3,20 @@ import QtQuick.Layouts 2
 
 Rectangle {
     color: colors.cell_wall
-    onWidthChanged: resizeToFit()
-    onHeightChanged: resizeToFit()
     clip: true
 
-    property bool drawingEnabled: false
+    property bool drawingEnabled: field_mouse_area.containsPress
+    property int drawingResult: (field_mouse_area.pressedButtons & Qt.LeftButton) ? 1 : 0
     // TODO State enum
-    property int drawingResult: 0
+
     readonly property int cellSize: 24
     readonly property int fullCellSize: cellSize + 1
+
+    readonly property int rows: (height - 5) / fullCellSize
+    readonly property int columns: (width - 5) / fullCellSize
+
+    onRowsChanged: table.model.resize(rows, columns)
+    onColumnsChanged: table.model.resize(rows, columns)
 
     TableView {
         id: table
@@ -36,6 +41,7 @@ Rectangle {
         }
 
         MouseArea {
+            id: field_mouse_area
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton | Qt.RightButton
 
@@ -46,13 +52,6 @@ Rectangle {
                 (mouse) => {
                     last_row = Math.floor(mouse.y / fullCellSize)
                     last_col = Math.floor(mouse.x / fullCellSize)
-                    field.drawingResult = mouse.button === Qt.LeftButton;
-                    field.drawingEnabled = true;
-                }
-
-            onReleased:
-                (mouse) => {
-                    field.drawingEnabled = false;
                 }
 
             onPositionChanged:
@@ -69,7 +68,7 @@ Rectangle {
                     let cur_col = last_col
 
                     while (true) {
-                        _fieldModel.setStateAt(cur_row, cur_col, drawingResult)
+                        table.model.setStateAt(cur_row, cur_col, drawingResult)
 
                         if (cur_row === row && cur_col === col) break
 
@@ -85,14 +84,6 @@ Rectangle {
                     last_row = row
                     last_col = col
                 }
-        }
-    }
-
-    function resizeToFit() {
-        const rows = Math.round((height + table.rowSpacing) / (cellSize + table.rowSpacing)) - 1
-        const columns = Math.round((width + table.columnSpacing) / (cellSize + table.columnSpacing)) - 1
-        if ((rows !== table.rows) || (columns !== table.columns)) {
-            _fieldModel.resize(rows, columns)
         }
     }
 }
