@@ -2,7 +2,6 @@
 
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 
 Field::Field(size_t nrows, size_t ncols)
     : mRows(nrows),
