@@ -17,7 +17,10 @@ public:
     Cell& at(size_t y, size_t x);
     void clear();
     void randomize();
-    void resize(size_t rows, size_t cols);
+    void createRow(const int index);
+    void removeRow(const int index);
+    void createCol(const int index);
+    void removeCol(const int index);
 
 private:
     size_t mRows, mCols;

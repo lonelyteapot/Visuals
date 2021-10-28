@@ -49,25 +49,38 @@ QHash<int, QByteArray> FieldModel::roleNames() const
     return roles;
 }
 
-void FieldModel::resize(int rows, int cols)
+void FieldModel::resizeVer(const int rows)
 {
-    QModelIndex parent {};
-    if (rows < 0) rows = 0;
-    if (cols < 0) cols = 0;
-    auto oldRows = rowCount(parent);
-    auto oldCols = columnCount(parent);
+    const QModelIndex parent {};
+    while (field.nrows() < rows) {
+        const int index = field.nrows() % 2 ? 0 : field.nrows();
+        beginInsertRows(parent, index, index);
+        field.createRow(index);
+        endInsertRows();
+    }
+    while (field.nrows() > rows) {
+        const int index = field.nrows() % 2 ? field.nrows() - 1 : 0;
+        beginRemoveRows(parent, index, index);
+        field.removeRow(index);
+        endRemoveRows();
+    }
+}
 
-    if (rows > oldRows)      beginInsertRows(parent, oldRows, rows-1);
-    else if (rows < oldRows) beginRemoveRows(parent, rows, oldRows-1);
-    if (cols > oldCols)      beginInsertColumns(parent, oldCols, cols-1);
-    else if (cols < oldCols) beginRemoveColumns(parent, cols, oldCols-1);
-
-    field.resize(rows, cols);
-
-    if (rows > oldRows)      endInsertRows();
-    else if (rows < oldRows) endRemoveRows();
-    if (cols > oldCols)      endInsertColumns();
-    else if (cols < oldCols) endRemoveColumns();
+void FieldModel::resizeHor(const int cols)
+{
+    const QModelIndex parent = QModelIndex();
+    while (field.ncols() < cols) {
+        const int index = field.ncols() % 2 ? 0 : field.ncols();
+        beginInsertColumns(parent, index, index);
+        field.createCol(index);
+        endInsertColumns();
+    }
+    while (field.ncols() > cols) {
+        const int index = field.ncols() % 2 ? field.ncols() - 1 : 0;
+        beginRemoveColumns(parent, index, index);
+        field.removeCol(index);
+        endRemoveColumns();
+    }
 }
 
 void FieldModel::setStateAt(int row, int col, Cell::State state)
