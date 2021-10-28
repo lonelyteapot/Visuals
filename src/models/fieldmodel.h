@@ -21,7 +21,6 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     bool setData(const QModelIndex &index, const QVariant &value, int role);
     QHash<int, QByteArray> roleNames() const;
-    Q_INVOKABLE void resize(int rows, int cols);
     Q_INVOKABLE void resizeVer(const int rows);
     Q_INVOKABLE void resizeHor(const int cols);
     Q_INVOKABLE void setStateAt(int row, int col, Cell::State state);

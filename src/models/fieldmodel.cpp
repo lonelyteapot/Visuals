@@ -49,27 +49,6 @@ QHash<int, QByteArray> FieldModel::roleNames() const
     return roles;
 }
 
-void FieldModel::resize(int rows, int cols)
-{
-    QModelIndex parent {};
-    if (rows < 0) rows = 0;
-    if (cols < 0) cols = 0;
-    auto oldRows = rowCount(parent);
-    auto oldCols = columnCount(parent);
-
-    if (rows > oldRows)      beginInsertRows(parent, oldRows, rows-1);
-    else if (rows < oldRows) beginRemoveRows(parent, rows, oldRows-1);
-    if (cols > oldCols)      beginInsertColumns(parent, oldCols, cols-1);
-    else if (cols < oldCols) beginRemoveColumns(parent, cols, oldCols-1);
-
-    field.resize(rows, cols);
-
-    if (rows > oldRows)      endInsertRows();
-    else if (rows < oldRows) endRemoveRows();
-    if (cols > oldCols)      endInsertColumns();
-    else if (cols < oldCols) endRemoveColumns();
-}
-
 void FieldModel::resizeVer(const int rows)
 {
     const QModelIndex parent {};

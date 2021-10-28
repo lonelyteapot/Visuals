@@ -42,22 +42,6 @@ void Field::randomize()
     at(std::rand() % size()).state = Cell::TARGET;
 }
 
-void Field::resize(size_t rows, size_t cols)
-{
-    while (mRows < rows) {
-        createRow(mRows % 2 ? mRows : 0);
-    }
-    while (mRows > rows) {
-        removeRow(mRows % 2 ? 0 : mRows-1);
-    }
-    while (mCols < cols) {
-        createCol(mCols % 2 ? mCols : 0);
-    }
-    while (mCols > cols) {
-        removeCol(mCols % 2 ? 0 : mCols-1);
-    }
-}
-
 void Field::createRow(const int index)
 {
     mCells.resize((mRows+1) * mCols);
