@@ -70,6 +70,40 @@ void FieldModel::resize(int rows, int cols)
     else if (cols < oldCols) endRemoveColumns();
 }
 
+void FieldModel::resizeVer(const int rows)
+{
+    const QModelIndex parent {};
+    while (field.nrows() < rows) {
+        const int index = field.nrows() % 2 ? 0 : field.nrows();
+        beginInsertRows(parent, index, index);
+        field.createRow(index);
+        endInsertRows();
+    }
+    while (field.nrows() > rows) {
+        const int index = field.nrows() % 2 ? field.nrows() - 1 : 0;
+        beginRemoveRows(parent, index, index);
+        field.removeRow(index);
+        endRemoveRows();
+    }
+}
+
+void FieldModel::resizeHor(const int cols)
+{
+    const QModelIndex parent = QModelIndex();
+    while (field.ncols() < cols) {
+        const int index = field.ncols() % 2 ? 0 : field.ncols();
+        beginInsertColumns(parent, index, index);
+        field.createCol(index);
+        endInsertColumns();
+    }
+    while (field.ncols() > cols) {
+        const int index = field.ncols() % 2 ? field.ncols() - 1 : 0;
+        beginRemoveColumns(parent, index, index);
+        field.removeCol(index);
+        endRemoveColumns();
+    }
+}
+
 void FieldModel::setStateAt(int row, int col, Cell::State state)
 {
     setData(index(row, col), state, Roles::StateRole);

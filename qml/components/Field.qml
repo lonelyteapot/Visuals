@@ -15,8 +15,8 @@ Rectangle {
     readonly property int rows: (height - 5) / fullCellSize
     readonly property int columns: (width - 5) / fullCellSize
 
-    onRowsChanged: table.model.resize(rows, columns)
-    onColumnsChanged: table.model.resize(rows, columns)
+    onRowsChanged: table.model.resizeVer(rows)
+    onColumnsChanged: table.model.resizeHor(columns)
 
     TableView {
         id: table
