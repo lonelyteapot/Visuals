@@ -59,14 +59,14 @@ Rectangle {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.verticalCenter
-                text: "Left click - draw walls"
+                text: "Left click - draw what's selected"
                 font.bold: field.drawingEnabled && field.drawingResult
             }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: parent.verticalCenter
-                text: "Right click - erase walls"
+                text: "Right click - erase anything"
                 font.bold: field.drawingEnabled && !field.drawingResult
             }
         }
