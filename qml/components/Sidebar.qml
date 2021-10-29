@@ -34,6 +34,12 @@ Rectangle {
             }
         }
 
+        ToolSelector {
+            Layout.fillWidth: true
+            color: colors.field_bg
+            radius: 5
+        }
+
         Item {
             Layout.fillHeight: true
         }

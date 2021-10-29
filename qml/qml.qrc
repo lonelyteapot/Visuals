@@ -4,5 +4,6 @@
         <file>components/Sidebar.qml</file>
         <file>components/Field.qml</file>
         <file>components/Cell.qml</file>
+        <file>components/ToolSelector.qml</file>
     </qresource>
 </RCC>
