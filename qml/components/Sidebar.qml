@@ -61,6 +61,7 @@ Rectangle {
                 anchors.bottom: parent.verticalCenter
                 text: "Left click - draw what's selected"
                 font.bold: field.drawingEnabled && field.drawingResult
+                font.pixelSize: 13
             }
 
             Text {
@@ -68,6 +69,7 @@ Rectangle {
                 anchors.top: parent.verticalCenter
                 text: "Right click - erase anything"
                 font.bold: field.drawingEnabled && !field.drawingResult
+                font.pixelSize: 13
             }
         }
     }
